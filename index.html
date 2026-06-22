@@ -332,11 +332,494 @@ Currently, both **Anurag Sir and Suraj Kumar** are working at the position of **
 
     <div style="text-align:center; margin-top:48px;">
       <p style="color:var(--muted); margin-bottom:20px; font-size:.95rem;">Ready ho? Abhi join karo — FREE hai!</p>
-      <a href="https://wa.me/917541907181?text=Hlo%20Anurag%20Sir,%20Mujhe%20Work%20From%20Anywhere%20ke%20baare%20mein%20mujhe%20kuch%20information%20chahiye" target="_blank" class="btn btn-wa" style="font-size:1.05rem; padding:16px 36px;">
-        💬 WhatsApp Karo — Join Karo Aaj Hi!
-      </a>
+  
+  <style>
+    * 
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      max-width: 860px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 0.5px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ── LEFT: FORM SIDE ── */
+    .form-side {
+      background: #0d2b1e;
+      padding: 2rem 1.75rem;
+    }
+
+    .form-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-header h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #3DFFA0;
+      letter-spacing: 0.5px;
+    }
+
+    .form-header p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      margin-top: 4px;
+    }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+    }
+
+    .field-label i {
+      font-size: 14px;
+      color: #3DFFA0;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 0.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      padding: 10px 12px;
+      outline: none;
+      font-family: 'Segoe UI', sans-serif;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #3DFFA0;
+      background: rgba(61, 255, 160, 0.05);
+    }
+
+    select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    select option {
+      background: #0d2b1e;
+      color: #fff;
+    }
+
+    textarea {
+      resize: none;
+      height: 72px;
+    }
+
+    .phone-wrap {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .phone-prefix {
+      background: rgba(61, 255, 160, 0.1);
+      border: 0.5px solid rgba(61, 255, 160, 0.3);
+      border-radius: 8px;
+      color: #3DFFA0;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 12px;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: #3DFFA0;
+      color: #0a2218;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 4px;
+      transition: opacity 0.2s, transform 0.1s;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.88;
+    }
+
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
+
+    .submit-btn i {
+      font-size: 18px;
+    }
+
+    /* ── RIGHT: INFO SIDE ── */
+    .info-side {
+      background: #0a2218;
+      padding: 2rem 1.75rem;
+      border-left: 0.5px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .info-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #3DFFA0;
+      margin-bottom: 4px;
+    }
+
+    .info-header p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .divider {
+      height: 0.5px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Steps */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(61, 255, 160, 0.12);
+      border: 0.5px solid rgba(61, 255, 160, 0.3);
+      color: #3DFFA0;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-text {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
+    }
+
+    .step-text strong {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Stats */
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 0.5px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .stat-card .num {
+      font-size: 20px;
+      font-weight: 600;
+      color: #3DFFA0;
+    }
+
+    .stat-card .lbl {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 2px;
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: rgba(61, 255, 160, 0.06);
+      border: 0.5px solid rgba(61, 255, 160, 0.2);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-box i {
+      font-size: 22px;
+      color: #3DFFA0;
+    }
+
+    .contact-box .ct {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-box .cv {
+      font-size: 13px;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #3DFFA0;
+      color: #0a2218;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 30px;
+      opacity: 0;
+      transition: all 0.35s ease;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .info-side {
+        border-left: none;
+        border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <div class="wrapper">
+
+    <!-- LEFT: FORM -->
+    <div class="form-side">
+      <div class="form-header">
+        <h2>Registration Form</h2>
+        <p>Apni details sahi se bharen</p>
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="field-label">
+            <i class="ti ti-user"></i> NAME
+          </div>
+          <input type="text" id="naam" placeholder="Aapka poora naam" />
+        </div>
+        <div>
+          <div class="field-label">
+            <i class="ti ti-cake"></i> AGE
+          </div>
+          <input type="number" id="umar" placeholder="Age" min="1" max="100" />
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">
+          <i class="ti ti-school"></i> QUALIFICATIN
+        </div>
+        <select id="qualification">
+          <option value="" disabled selected>Select Option</option>
+          <option value="10th">10th Pass</option>
+          <option value="12th">12th Pass</option>
+          <option value="graduate">Graduate</option>
+          <option value="postgraduate">Post Graduate</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <div class="field-label">
+          <i class="ti ti-map-pin"></i> ADDRESS
+        </div>
+        <textarea id="address" placeholder="Jaise: Patna, Bihar"></textarea>
+      </div>
+
+      <div class="field">
+        <div class="field-label">
+          <i class="ti ti-device-mobile"></i> MOBILE NUMBER
+        </div>
+        <div class="phone-wrap">
+          <div class="phone-prefix">+91</div>
+          <input type="tel" id="mobile" placeholder="10-digit number" maxlength="10" />
+        </div>
+      </div>
+
+      <button class="submit-btn" onclick="handleSubmit()">
+        <i class="ti ti-brand-whatsapp"></i>
+        Submit Form
+      </button>
     </div>
+
+    <!-- RIGHT: INFO -->
+    <div class="info-side">
+      <div class="info-header">
+        <h3>Form kyon bharna hai?</h3>
+        <p>Yahan janiye is registration ka faida</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong>Free Registration</strong>
+            Bilkul muft mein register karein, koi hidden charge nahi
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong>WhatsApp par contact</strong>
+            Submit karne ke baad team aapse WhatsApp par judegi
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong>Jaldi slot milega</strong>
+            Pehle aayein, pehle paayein — seat limited hain
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="num">500+</div>
+          <div class="lbl">Students joined</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">98%</div>
+          <div class="lbl">Success rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">Free</div>
+          <div class="lbl">Registration</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">12h</div>
+          <div class="lbl">Response time</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="contact-box">
+        <i class="ti ti-headset"></i>
+        <div>
+          <div class="ct">Koi sawaal? Sampark karein</div>
+          <div class="cv">+91 7541907181</div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Form successfully submit ho gaya!</div>
+
+  <script>
+    function handleSubmit() {
+      const naam = document.getElementById('naam').value.trim();
+      const umar = document.getElementById('umar').value.trim();
+      const qualification = document.getElementById('qualification').value;
+      const address = document.getElementById('address').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+
+      if (!naam) { alert('Naam bharna zaroori hai!'); return; }
+      if (!umar) { alert('Umar bharna zaroori hai!'); return; }
+      if (!qualification) { alert('Qualification select karo!'); return; }
+      if (!address) { alert('Address bharna zaroori hai!'); return; }
+      if (!mobile || mobile.length !== 10) {
+        alert('Valid 10-digit mobile number daalein!');
+        return;
+      }
+
+      showToast('Form successfully submit ho gaya! ✓');
+
+      // Clear form
+      document.getElementById('naam').value = '';
+      document.getElementById('umar').value = '';
+      document.getElementById('qualification').value = '';
+      document.getElementById('address').value = '';
+      document.getElementById('mobile').value = '';
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // Only allow digits in mobile field
+    document.getElementById('mobile').addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '');
+    });
+  </script>
 </section>
 
 <!-- ══════════ FOOTER ══════════ -->

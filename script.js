@@ -63,3 +63,43 @@ function closeCard(event, btn) {
     event.stopPropagation();
     btn.closest('.team-card').classList.remove('open');
   }
+
+  function submitForm() {
+    const name   = document.getElementById('f-name').value.trim();
+    const age    = document.getElementById('f-age').value.trim();
+    const qual   = document.getElementById('f-qual').value;
+    const addr   = document.getElementById('f-addr').value.trim();
+    const mobile = document.getElementById('f-mobile').value.trim();
+
+    // Clear errors
+    ['f-name','f-age','f-qual','f-addr','f-mobile'].forEach(id => {
+      document.getElementById(id).classList.remove('error');
+    });
+
+    let valid = true;
+    if (!name)   { document.getElementById('f-name').classList.add('error'); valid=false; }
+    if (!age || parseInt(age)<18) { document.getElementById('f-age').classList.add('error'); valid=false; }
+    if (!qual)   { document.getElementById('f-qual').classList.add('error'); valid=false; }
+    if (!addr)   { document.getElementById('f-addr').classList.add('error'); valid=false; }
+    if (!mobile || mobile.length < 10) { document.getElementById('f-mobile').classList.add('error'); valid=false; }
+
+    if (!valid) return;
+
+    const msg =
+      `🙏 *Namaskar Anurag Bhai!*\n\nMaine Work From Anywhere ke liye apply kiya hai:\n\n` +
+      `👤 *Naam:* ${name}\n` +
+      `🎂 *Age:* ${age} saal\n` +
+      `🎓 *Qualification:* ${qual}\n` +
+      `🏠 *Address:* ${addr}\n` +
+      `📱 *Mobile:* +91 ${mobile}\n\n` +
+      `Kripya mujhe joining ke baare mein guide karein. 🙏`;
+
+    // Show success
+    document.getElementById('form-card').style.display = 'none';
+    document.getElementById('success-card').style.display = 'block';
+
+    setTimeout(() => {
+      window.open('https://wa.me/917541907181?text=' + encodeURIComponent(msg), '_blank');
+    }, 600);
+  }
+   

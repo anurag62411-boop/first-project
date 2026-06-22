@@ -781,45 +781,79 @@ Currently, both **Anurag Sir and Suraj Kumar** are working at the position of **
   <!-- Toast -->
   <div class="toast" id="toast">Form successfully submit ho gaya!</div>
 
-  <script>
-    function handleSubmit() {
-      const naam = document.getElementById('naam').value.trim();
-      const umar = document.getElementById('umar').value.trim();
-      const qualification = document.getElementById('qualification').value;
-      const address = document.getElementById('address').value.trim();
-      const mobile = document.getElementById('mobile').value.trim();
+<script>
+  function handleSubmit() {
+    const naam = document.getElementById('naam').value.trim();
+    const umar = document.getElementById('umar').value.trim();
+    const qualification = document.getElementById('qualification').value;
+    const address = document.getElementById('address').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
 
-      if (!naam) { alert('Naam bharna zaroori hai!'); return; }
-      if (!umar) { alert('Umar bharna zaroori hai!'); return; }
-      if (!qualification) { alert('Qualification select karo!'); return; }
-      if (!address) { alert('Address bharna zaroori hai!'); return; }
-      if (!mobile || mobile.length !== 10) {
-        alert('Valid 10-digit mobile number daalein!');
-        return;
-      }
-
-      showToast('Form successfully submit ho gaya! ✓');
-
-      // Clear form
-      document.getElementById('naam').value = '';
-      document.getElementById('umar').value = '';
-      document.getElementById('qualification').value = '';
-      document.getElementById('address').value = '';
-      document.getElementById('mobile').value = '';
+    if (!naam) {
+      alert('Naam bharna zaroori hai!');
+      return;
     }
 
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
+    if (!umar) {
+      alert('Umar bharna zaroori hai!');
+      return;
     }
 
-    // Only allow digits in mobile field
-    document.getElementById('mobile').addEventListener('input', function () {
-      this.value = this.value.replace(/\D/g, '');
-    });
-  </script>
+    if (!qualification) {
+      alert('Qualification select karo!');
+      return;
+    }
+
+    if (!address) {
+      alert('Address bharna zaroori hai!');
+      return;
+    }
+
+    if (!mobile || mobile.length !== 10) {
+      alert('Valid 10-digit mobile number daalein!');
+      return;
+    }
+
+  // WhatsApp message in English
+    const message =
+      "NEW REGISTRATION FORM\n\n" +
+      "NAME: " + naam + "\n" +
+      "AGE: " + umar + "\n" +
+      "QUALIFICATION: " + qualification + "\n" +
+      "ADDRESS: " + address + "\n" +
+      "MOBILE NUMBER: " + mobile;
+    // Apna WhatsApp number
+    const whatsappNumber = "917541907181";
+
+    // WhatsApp URL
+    const url =
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    showToast('Form successfully submit ho gaya! ✓');
+
+    // WhatsApp open karo
+    window.open(url, "_blank");
+
+    // Form clear karo
+    document.getElementById('naam').value = '';
+    document.getElementById('umar').value = '';
+    document.getElementById('qualification').value = '';
+    document.getElementById('address').value = '';
+    document.getElementById('mobile').value = '';
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // Mobile field me sirf numbers allow honge
+  document.getElementById('mobile').addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '');
+  });
+</script>
 </section>
 
 <!-- ══════════ FOOTER ══════════ -->
